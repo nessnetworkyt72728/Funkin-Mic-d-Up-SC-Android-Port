@@ -83,11 +83,12 @@ class FirstCheckState extends MusicBeatState
 				case true:
 					FlxG.switchState(new FirstTimeState()); // First time language setting
 				case false:
-                                        var video = new WebmPlayerS("assets/videos/paint.webm", true, true, -1, null, null, null, null);
+	                                var video = new WebmPlayerS("assets/videos/paint.webm", true);
                                         video.endcallback = () -> {
                                             remove(video);
                                             FlxG.switchState(new TitleState());
                                         }
+                                        video.setGraphicSize(FlxG.width);
                                         video.updateHitbox();
                                         add(video);
                                         video.play();
