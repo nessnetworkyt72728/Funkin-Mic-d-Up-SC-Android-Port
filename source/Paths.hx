@@ -105,9 +105,9 @@ class Paths
 
 	inline static function getLibraryPathForce(file:String, library:String)
 	{
-		if (FileSystem.exists('mods/mainMods/_append/$library/$file'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/$library/$file'))
 		{
-			return File.getContent('mods/mainMods/_append/$library/$file');
+			return File.getContent(Main.getDataPath() + 'mods/mainMods/_append/$library/$file');
 		}
 		else
 		{
@@ -117,9 +117,9 @@ class Paths
 
 	inline static function getPreloadPath(file:String)
 	{
-		if (FileSystem.exists('mods/mainMods/_append/$file'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/$file'))
 		{
-			return File.getContent('mods/mainMods/_append/$file');
+			return File.getContent(Main.getDataPath() + 'mods/mainMods/_append/$file');
 		}
 		else
 		{
@@ -129,7 +129,7 @@ class Paths
 
 	inline static function getSoundPathForce(file:String, library:String):FlxSoundAsset
 	{
-		if (FileSystem.exists('mods/mainMods/_append/$library/$file'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/$library/$file'))
 		{
 			return Sound.fromFile('mods/mainMods/_append/$library/$file');
 		}
@@ -141,7 +141,7 @@ class Paths
 
 	inline static function getSoundPath(file:String):FlxSoundAsset
 	{
-		if (FileSystem.exists('mods/mainMods/_append/$file'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/$file'))
 		{
 			return Sound.fromFile('mods/mainMods/_append/$file');
 		}
@@ -153,28 +153,28 @@ class Paths
 
 	inline static function getImagePathForce(file:String, library:String):FlxGraphicAsset
 	{
-		if (FileSystem.exists('mods/mainMods/_append/$library/$file'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/$library/$file'))
 		{
-			var rawPic = File.getBytes('mods/mainMods/_append/$library/$file');
+			var rawPic = File.getBytes(Main.getDataPath() + 'mods/mainMods/_append/$library/$file');
 			return BitmapData.fromBytes(ByteArray.fromBytes(rawPic));
 		}
 		else
 		{
-			var rawPic = File.getBytes('assets/$library/$file');
+			var rawPic = File.getBytes(Main.getDataPath() + 'assets/$library/$file');
 			return BitmapData.fromBytes(ByteArray.fromBytes(rawPic));
 		}
 	}
 
 	inline static function getImagePath(file:String):FlxGraphicAsset
 	{
-		if (FileSystem.exists('mods/mainMods/_append/$file'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/$file'))
 		{
-			var rawPic = File.getBytes('mods/mainMods/_append/$file');
+			var rawPic = File.getBytes(Main.getDataPath() + 'mods/mainMods/_append/$file');
 			return BitmapData.fromBytes(ByteArray.fromBytes(rawPic));
 		}
 		else
 		{
-			var rawPic = File.getBytes('assets/$file');
+			var rawPic = File.getBytes(Main.getDataPath() + 'assets/$file');
 			return BitmapData.fromBytes(ByteArray.fromBytes(rawPic));
 		}
 	}
@@ -192,13 +192,13 @@ class Paths
 	inline public static function offsets(path:String, ?library:String):Array<String>
 	{
 		var daList:Array<String> = [];
-		if (!FileSystem.exists('mods/mainMods/_append/shared/images/characters/$path.txt'))
+		if (!FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/shared/images/characters/$path.txt'))
 		{
 			// CRINGE ASS!
 			daList = lime.utils.Assets.getText('shared:assets/shared/images/characters/$path.txt').trim().split('\n');
 		}
 		else
-			daList = File.getContent('mods/mainMods/_append/shared/images/characters/$path.txt').trim().split('\n');
+			daList = File.getContent(Main.getDataPath() + 'mods/mainMods/_append/shared/images/characters/$path.txt').trim().split('\n');
 
 		for (i in 0...daList.length)
 		{
@@ -218,9 +218,9 @@ class Paths
 		#if !sys
 		return getPath('data/$key.json', TEXT, library);
 		#else
-		if (FileSystem.exists(('mods/mainMods/_append/data/$key.json')))
+		if (FileSystem.exists((Main.getDataPath() + 'mods/mainMods/_append/data/$key.json')))
 		{
-			return 'mods/mainMods/_append/data/$key.json';
+			return Main.getDataPath() + 'mods/mainMods/_append/data/$key.json';
 		}
 		else
 			return getPath('data/$key.json', TEXT, library);
@@ -229,15 +229,15 @@ class Paths
 
 	static public function sound(key:String, ?library:String):FlxSoundAsset
 	{
-		if (FileSystem.exists('mods/mainMods/_append/sounds/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/shared/sounds/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week1/sounds/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week2/sounds/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week3/sounds/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week4/sounds/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week5/sounds/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week6/sounds/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/$library/sounds/$key.ogg'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/sounds/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/shared/sounds/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week1/sounds/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week2/sounds/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week3/sounds/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week4/sounds/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week5/sounds/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week6/sounds/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/$library/sounds/$key.ogg'))
 			return getPathSound('sounds/$key.$SOUND_EXT', SOUND, library);
 		else
 			return getPath('sounds/$key.$SOUND_EXT', SOUND, library);
@@ -250,15 +250,15 @@ class Paths
 
 	inline static public function music(key:String, ?library:String):FlxSoundAsset
 	{
-		if (FileSystem.exists('mods/mainMods/_append/music/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/shared/music/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week1/music/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week2/music/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week3/music/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week4/music/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week5/music/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/week6/music/$key.ogg')
-			|| FileSystem.exists('mods/mainMods/_append/$library/music/$key.ogg'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/music/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/shared/music/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week1/music/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week2/music/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week3/music/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week4/music/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week5/music/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week6/music/$key.ogg')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/$library/music/$key.ogg'))
 			return getPathSound('music/$key.$SOUND_EXT', MUSIC, library);
 		else
 			return getPath('music/$key.$SOUND_EXT', MUSIC, library);
@@ -267,7 +267,7 @@ class Paths
 	inline static public function voices(song:String)
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Voices.$SOUND_EXT';
-		if (FileSystem.exists('mods/mainMods/_append/songs/${song.toLowerCase()}/Voices.$SOUND_EXT'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Voices.$SOUND_EXT'))
 			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Voices.$SOUND_EXT');
 
 		return rawSound;
@@ -276,7 +276,7 @@ class Paths
 	inline static public function voicesHIFI(song:String)
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Voices_HIFI.$SOUND_EXT';
-		if (FileSystem.exists('mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_HIFI.$SOUND_EXT'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_HIFI.$SOUND_EXT'))
 			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_HIFI.$SOUND_EXT');
 
 		return rawSound;
@@ -285,7 +285,7 @@ class Paths
 	inline static public function voicesLOFI(song:String)
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Voices_LOFI.$SOUND_EXT';
-		if (FileSystem.exists('mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_LOFI.$SOUND_EXT'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_LOFI.$SOUND_EXT'))
 			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_LOFI.$SOUND_EXT');
 
 		return rawSound;
@@ -294,7 +294,7 @@ class Paths
 	inline static public function inst(song:String)
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Inst.$SOUND_EXT';
-		if (FileSystem.exists('mods/mainMods/_append/songs/${song.toLowerCase()}/Inst.$SOUND_EXT'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Inst.$SOUND_EXT'))
 			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Inst.$SOUND_EXT');
 
 		return rawSound;
@@ -303,7 +303,7 @@ class Paths
 	inline static public function instHIFI(song:String)
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Inst_HIFI.$SOUND_EXT';
-		if (FileSystem.exists('mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_HIFI.$SOUND_EXT'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_HIFI.$SOUND_EXT'))
 			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_HIFI.$SOUND_EXT');
 
 		return rawSound;
@@ -312,7 +312,7 @@ class Paths
 	inline static public function instLOFI(song:String)
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Inst_LOFI.$SOUND_EXT';
-		if (FileSystem.exists('mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_LOFI.$SOUND_EXT'))
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_LOFI.$SOUND_EXT'))
 			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_LOFI.$SOUND_EXT');
 
 		return rawSound;
@@ -321,15 +321,15 @@ class Paths
 	inline static public function image(key:String, ?library:String):FlxGraphicAsset
 	{
 		// i seriously dont know any other way of doing this
-		if (FileSystem.exists('mods/mainMods/_append/images/$key.png')
-			|| FileSystem.exists('mods/mainMods/_append/shared/images/$key.png')
-			|| FileSystem.exists('mods/mainMods/_append/week1/images/$key.png')
-			|| FileSystem.exists('mods/mainMods/_append/week2/images/$key.png')
-			|| FileSystem.exists('mods/mainMods/_append/week3/images/$key.png')
-			|| FileSystem.exists('mods/mainMods/_append/week4/images/$key.png')
-			|| FileSystem.exists('mods/mainMods/_append/week5/images/$key.png')
-			|| FileSystem.exists('mods/mainMods/_append/week6/images/$key.png')
-			|| FileSystem.exists('mods/mainMods/_append/$library/images/$key.png')) // lol
+		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/images/$key.png')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/shared/images/$key.png')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week1/images/$key.png')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week2/images/$key.png')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week3/images/$key.png')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week4/images/$key.png')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week5/images/$key.png')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/week6/images/$key.png')
+			|| FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/$library/images/$key.png')) // lol
 			return getPathImage('images/$key.png', IMAGE, library);
 		else
 			return getPath('images/$key.png', IMAGE, library);
