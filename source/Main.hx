@@ -80,16 +80,6 @@ class Main extends Sprite
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
-		var ourSource:String = "assets/videos/dontDelete.webm";
-
-		var str1:String = "WEBM SHIT";
-		webmHandle = new WebmHandler();
-		webmHandle.source(ourSource);
-		webmHandle.makePlayer();
-		webmHandle.webm.name = str1;
-		addChild(webmHandle.webm);
-		GlobalVideo.setWebm(webmHandle);
-
 		fpsCounter = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsCounter);
 
