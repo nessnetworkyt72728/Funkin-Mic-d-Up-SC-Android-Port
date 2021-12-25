@@ -60,11 +60,11 @@ class Paths
 		return getPath('data/$key.txt', TEXT, library);
 	}
 	
-		inline public static function offsets(path:String, ?library:String):Array<String>
+	inline public static function offsets(path:String, ?library:String):Array<String>
 	{
 		var daList:Array<String> = [];
-			// CRINGE ASS!
-			daList = lime.utils.Assets.getText('shared:assets/shared/images/characters/$path.txt').trim().split('\n');
+
+		daList = lime.utils.Assets.getText('shared:assets/shared/images/characters/$path.txt').trim().split('\n');
 
 		for (i in 0...daList.length)
 		{
