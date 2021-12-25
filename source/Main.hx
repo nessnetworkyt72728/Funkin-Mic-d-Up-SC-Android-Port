@@ -11,6 +11,9 @@ import openfl.Lib;
 import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
+import sys.FileSystem;
+import lime.app.Application;
+import lime.system.System;
 
 class Main extends Sprite
 {
@@ -26,6 +29,8 @@ class Main extends Sprite
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 	public static var watermark:Sprite;
+
+        private static var dataPath:String = null;
 
 	public static function main():Void
 	{
@@ -47,6 +52,31 @@ class Main extends Sprite
 			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 	}
+
+        static public function getDataPath():String 
+        {
+            if (dataPath != null && dataPath.length > 0) 
+            {
+                return dataPath;
+            } 
+            else 
+            {
+                #if mobile
+                if (FileSystem.exists("/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/")) 
+                {
+                    dataPath = "/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/";
+                } 
+                else 
+                {
+                    Application.current.window.alert("couldn't find directory: " + "/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/" + "\n" + "try creating it and copying assets/assets, assets/mods from apk to it","an ERROR occured");
+                    dataPath = System.applicationStorageDirectory;
+                }
+                #else
+                dataPath = "";
+                #end
+             }
+             return dataPath;
+        }
 
 	private function init(?E:Event):Void
 	{
