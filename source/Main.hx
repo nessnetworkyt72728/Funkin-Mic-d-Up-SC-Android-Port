@@ -55,22 +55,6 @@ class Main extends Sprite
 
         static public function getDataPath():String 
         {
-            if (dataPath != null && dataPath.length > 0) 
-            {
-                return dataPath;
-            } 
-            else 
-            {
-                if (FileSystem.exists("/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/")) 
-                {
-                    dataPath = "/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/";
-                } 
-                else 
-                {
-                    Application.current.window.alert("couldn't find directory: " + "/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/" + "\n" + "try creating it and copying assets/assets, assets/mods from apk to it","an ERROR occured");
-                    dataPath = System.applicationStorageDirectory;
-                }
-            }
             return dataPath;
         }
 
