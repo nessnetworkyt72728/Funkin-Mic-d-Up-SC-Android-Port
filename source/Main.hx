@@ -12,7 +12,6 @@ import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import sys.FileSystem;
-import lime.app.Application;
 import lime.system.System;
 
 class Main extends Sprite
