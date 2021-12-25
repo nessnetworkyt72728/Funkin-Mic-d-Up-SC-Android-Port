@@ -27,8 +27,6 @@ class Main extends Sprite
 	// You can pretty much ignore everything from here on - your code should go in your states.
 	public static var watermark:Sprite;
 
-	public var webmHandle:WebmHandler;
-
 	public static function main():Void
 	{
 		Lib.current.addChild(new Main());
