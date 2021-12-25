@@ -295,21 +295,21 @@ class MenuSurvival extends MusicBeatState
 
 	function loadCurrent()
 		{
-			if (!FileSystem.isDirectory('presets/survival'))
-				FileSystem.createDirectory('presets/survival');
+			if (!FileSystem.isDirectory(Main.getDataPath() + 'presets/survival'))
+				FileSystem.createDirectory(Main.getDataPath() + 'presets/survival');
 	
-			if (!FileSystem.exists('presets/survival/current'))
+			if (!FileSystem.exists(Main.getDataPath() + 'presets/survival/current'))
 			{
 				_survival = {
 					songDifficulties: [],
 					songNames: []
 				}
 	
-				File.saveContent(('presets/survival/current'), Json.stringify(_survival, null, '    '));
+				File.saveContent((Main.getDataPath() + 'presets/survival/current'), Json.stringify(_survival, null, '    '));
 			}
 			else
 			{
-				var data:String = File.getContent('presets/survival/current');
+				var data:String = File.getContent(Main.getDataPath() + 'presets/survival/current');
 				_survival = Json.parse(data);
 				PlayState.difficultyPlaylist = _survival.songDifficulties;
 				PlayState.storyPlaylist = _survival.songNames;
@@ -322,12 +322,12 @@ class MenuSurvival extends MusicBeatState
 				songDifficulties: PlayState.difficultyPlaylist,
 				songNames: PlayState.storyPlaylist
 			}
-			File.saveContent(('presets/survival/current'), Json.stringify(_survival, null, '    '));
+			File.saveContent((Main.getDataPath() + 'presets/survival/current'), Json.stringify(_survival, null, '    '));
 		}
 	
 	public static function loadPreset(input:String):Void
 		{
-			var data:String = File.getContent('presets/survival/' + input);
+			var data:String = File.getContent(Main.getDataPath() + 'presets/survival/' + input);
 			_survival = Json.parse(data);
 	
 			PlayState.difficultyPlaylist = _survival.songDifficulties;
@@ -342,7 +342,7 @@ class MenuSurvival extends MusicBeatState
 				songDifficulties: PlayState.difficultyPlaylist,
 				songNames: PlayState.storyPlaylist
 			}
-			File.saveContent(('presets/survival/' + input), Json.stringify(_survival, null, '    ')); // just an example for now
+			File.saveContent((Main.getDataPath() + 'presets/survival/' + input), Json.stringify(_survival, null, '    ')); // just an example for now
 		}
 }
 
