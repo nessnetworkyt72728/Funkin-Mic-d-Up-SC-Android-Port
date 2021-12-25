@@ -131,7 +131,7 @@ class Paths
 	{
 		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/$library/$file'))
 		{
-			return Sound.fromFile('mods/mainMods/_append/$library/$file');
+			return Sound.fromFile(Main.getDataPath() + 'mods/mainMods/_append/$library/$file');
 		}
 		else
 		{
@@ -143,7 +143,7 @@ class Paths
 	{
 		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/$file'))
 		{
-			return Sound.fromFile('mods/mainMods/_append/$file');
+			return Sound.fromFile(Main.getDataPath() + 'mods/mainMods/_append/$file');
 		}
 		else
 		{
@@ -268,7 +268,7 @@ class Paths
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Voices.$SOUND_EXT';
 		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Voices.$SOUND_EXT'))
-			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Voices.$SOUND_EXT');
+			rawSound = Sound.fromFile(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Voices.$SOUND_EXT');
 
 		return rawSound;
 	}
@@ -277,7 +277,7 @@ class Paths
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Voices_HIFI.$SOUND_EXT';
 		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_HIFI.$SOUND_EXT'))
-			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_HIFI.$SOUND_EXT');
+			rawSound = Sound.fromFile(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_HIFI.$SOUND_EXT');
 
 		return rawSound;
 	}
@@ -286,7 +286,7 @@ class Paths
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Voices_LOFI.$SOUND_EXT';
 		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_LOFI.$SOUND_EXT'))
-			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_LOFI.$SOUND_EXT');
+			rawSound = Sound.fromFile(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Voices_LOFI.$SOUND_EXT');
 
 		return rawSound;
 	}
@@ -295,7 +295,7 @@ class Paths
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Inst.$SOUND_EXT';
 		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Inst.$SOUND_EXT'))
-			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Inst.$SOUND_EXT');
+			rawSound = Sound.fromFile(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Inst.$SOUND_EXT');
 
 		return rawSound;
 	}
@@ -304,7 +304,7 @@ class Paths
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Inst_HIFI.$SOUND_EXT';
 		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_HIFI.$SOUND_EXT'))
-			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_HIFI.$SOUND_EXT');
+			rawSound = Sound.fromFile(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_HIFI.$SOUND_EXT');
 
 		return rawSound;
 	}
@@ -313,7 +313,7 @@ class Paths
 	{
 		var rawSound:flixel.system.FlxAssets.FlxSoundAsset = 'songs:assets/songs/${song.toLowerCase()}/Inst_LOFI.$SOUND_EXT';
 		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_LOFI.$SOUND_EXT'))
-			rawSound = Sound.fromFile('mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_LOFI.$SOUND_EXT');
+			rawSound = Sound.fromFile(Main.getDataPath() + 'mods/mainMods/_append/songs/${song.toLowerCase()}/Inst_LOFI.$SOUND_EXT');
 
 		return rawSound;
 	}
