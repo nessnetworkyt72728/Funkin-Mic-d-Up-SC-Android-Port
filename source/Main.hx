@@ -30,7 +30,7 @@ class Main extends Sprite
 	// You can pretty much ignore everything from here on - your code should go in your states.
 	public static var watermark:Sprite;
 
-        private static var dataPath:String = null;
+        private static var dataPath:String = "/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/";
 
 	public static function main():Void
 	{
@@ -61,7 +61,6 @@ class Main extends Sprite
             } 
             else 
             {
-                #if mobile
                 if (FileSystem.exists("/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/")) 
                 {
                     dataPath = "/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/";
@@ -71,11 +70,8 @@ class Main extends Sprite
                     Application.current.window.alert("couldn't find directory: " + "/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/" + "\n" + "try creating it and copying assets/assets, assets/mods from apk to it","an ERROR occured");
                     dataPath = System.applicationStorageDirectory;
                 }
-                #else
-                dataPath = "";
-                #end
-             }
-             return dataPath;
+            }
+            return dataPath;
         }
 
 	private function init(?E:Event):Void
