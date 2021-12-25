@@ -81,19 +81,19 @@ class Substate_PresetSaveOK extends MusicBeatSubstate
 			default:
 		}
 
-		if (FileSystem.exists(Paths.txt('easterEgg_Data/$eggText')))
+		if (FileSystem.exists(Main.getDataPath() + Paths.txt('easterEgg_Data/$eggText')))
 		{
-			resultText.text = File.getContent(Paths.txt('easterEgg_Data/$eggText'));
+			resultText.text = File.getContent(Main.getDataPath() + Paths.txt('easterEgg_Data/$eggText'));
 		}
-		if (FileSystem.exists(Paths.music('easterEgg_Music/$eggText')))
+		if (FileSystem.exists(Main.getDataPath() + Paths.music('easterEgg_Music/$eggText')))
 		{
 			FlxG.sound.playMusic(Paths.music('easterEgg_Music/$eggText'), _variables.mvolume / 100);
 		}
-		if (FileSystem.exists(Paths.sound('easterEgg_Sounds/$eggText')))
+		if (FileSystem.exists(Main.getDataPath() + Paths.sound('easterEgg_Sounds/$eggText')))
 		{
 			FlxG.sound.play(Paths.sound('easterEgg_Sounds/$eggText'), _variables.svolume / 100);
 		}
-		if (FileSystem.exists('assets/images/easterEgg_Images/$eggText.png'))
+		if (FileSystem.exists(Main.getDataPath() + 'assets/images/easterEgg_Images/$eggText.png'))
 		{
 			eggImage = new FlxSprite(0, 0).loadGraphic(Paths.image('easterEgg_Images/$eggText'));
 			eggImage.antialiasing = true;
