@@ -97,17 +97,17 @@ class MainVariables
 
 	public static function Save():Void
 	{
-		File.saveContent(('config-$configVersion.json'), Json.stringify(_variables, null, '    '));
+		File.saveContent((Main.getDataPath() + 'config-$configVersion.json'), Json.stringify(_variables, null, '    '));
 	}
 
 	public static function Load():Void
 	{
-		musicList = FileSystem.readDirectory('assets/music/menu');
+		musicList = FileSystem.readDirectory(Main.getDataPath() + 'assets/music/menu');
 
-		hitList = FileSystem.readDirectory('assets/shared/sounds/hitsounds');
+		hitList = FileSystem.readDirectory(Main.getDataPath() + 'assets/shared/sounds/hitsounds');
 		hitList.unshift('none.ogg');
 
-		iconList = FileSystem.readDirectory('assets/shared/images/icons');
+		iconList = FileSystem.readDirectory(Main.getDataPath() + 'assets/shared/images/icons');
 		iconList.unshift('template.png');
 
 		for (i in 0...musicList.length)
@@ -132,7 +132,7 @@ class MainVariables
 				iconList.remove(iconList[i]);
 		}
 
-		if (!FileSystem.exists('config-$configVersion.json'))
+		if (!FileSystem.exists(Main.getDataPath() + 'config-$configVersion.json'))
 		{
 			_variables = {
 				resolution: 1,
@@ -208,7 +208,7 @@ class MainVariables
 		{
 			try
 			{
-				var data:String = File.getContent(('config-$configVersion.json'));
+				var data:String = File.getContent((Main.getDataPath() + 'config-$configVersion.json'));
 				_variables = Json.parse(data);
 			}
 			catch (error)
