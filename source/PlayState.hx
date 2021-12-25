@@ -3792,7 +3792,6 @@ class PlayState extends MusicBeatState
 
 					if (SONG.validScore && !cheated && !_variables.botplay)
 					{
-						NGio.unlockMedal(60961);
 						Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 					}
 
