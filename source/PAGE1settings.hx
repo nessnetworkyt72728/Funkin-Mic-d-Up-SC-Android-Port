@@ -333,8 +333,8 @@ class PAGE1settings extends MusicBeatSubstate
 				_variables.fps += 10 * Change;
 				if (_variables.fps < 60)
 					_variables.fps = 60;
-				if (_variables.fps > 480)
-					_variables.fps = 480;
+				if (_variables.fps > 120)
+					_variables.fps = 120;
 
 				FlxG.sound.play(Paths.sound('scrollMenu'), _variables.svolume / 100);
 				new FlxTimer().start(0.1, function(tmr:FlxTimer)
