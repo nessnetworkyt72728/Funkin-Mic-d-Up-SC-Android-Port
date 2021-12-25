@@ -121,11 +121,11 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="faxe" if='switch'/>
 	<haxelib name="polymod"/>
-	<haxelib name="discord_rpc" if="desktop"/>
+	<haxelib name="discord_rpc"/>
 	<haxelib name="seedyrng"/> <!--haxelib install seedyrng-->
 	<haxelib name="random"/> <!--haxelib install random-->
-	<haxelib name="systools" unless="mobile"/>
-	<ndll name="systools" haxelib="systools" unless="mobile"/>
+	<haxelib name="systools" if='desktop'/>
+	<ndll name="systools" haxelib="systools" if='desktop'/>
 	
 	<haxelib name="actuate"/>
 	<haxelib name="extension-webm"/>
