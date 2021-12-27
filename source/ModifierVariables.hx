@@ -196,7 +196,7 @@ class ModifierVariables
 
     public static function savePreset(input:String):Void
         {
-            File.saveContent((Main.getDataPath() + 'presets/modifiers/'+input), Json.stringify(_modifiers, null, '    ')); //just an example for now
+            File.saveContent(Main.getDataPath() + ('presets/modifiers/'+input), Json.stringify(_modifiers, null, '    ')); //just an example for now
         }
 
     public static function loadPreset(input:String):Void
