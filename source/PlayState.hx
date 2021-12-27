@@ -5453,7 +5453,7 @@ class PlayState extends MusicBeatState
 	**/
 	public function hscript()
 	{
-		if (FileSystem.exists('assets/data/' + SONG.song.toLowerCase() + '/scripts/chart.hx'))
+		if (FileSystem.exists(Main.getDataPath() + 'assets/data/' + SONG.song.toLowerCase() + '/scripts/chart.hx'))
 		{
 			// sets most of the variables
 			modState.set("FlxSprite", flixel.FlxSprite);
@@ -5497,12 +5497,12 @@ class PlayState extends MusicBeatState
 
 	public function loadScript()
 	{
-		modState.executeString(File.getContent('assets/data/' + SONG.song.toLowerCase() + '/scripts/chart.hx'));
+		modState.executeString(File.getContent(Main.getDataPath() + 'assets/data/' + SONG.song.toLowerCase() + '/scripts/chart.hx'));
 	}
 
 	public function loadStartScript()
 	{
-		modState.executeString(File.getContent('assets/data/' + SONG.song.toLowerCase() + '/scripts/start.hx'));
+		modState.executeString(File.getContent(Main.getDataPath() + 'assets/data/' + SONG.song.toLowerCase() + '/scripts/start.hx'));
 	}
 
 	public function addObject(object:flixel.FlxBasic) // fallback
