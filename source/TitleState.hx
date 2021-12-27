@@ -299,11 +299,6 @@ class TitleState extends MusicBeatState
 			MainVariables.Save();
 		}
 
-		if (FlxG.keys.pressed.CONTROL && FlxG.keys.justPressed.R)
-		{
-			restart();
-		}
-
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
 			titleText.animation.play('press');
