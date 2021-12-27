@@ -25,7 +25,7 @@ class HealthIcon extends FlxSprite
 	{
 		super();
 
-		if (FileSystem.exists('assets/shared/images/icons/$style/icon-' + char + '.png') || FileSystem.exists('mods/mainMods/_append/shared/images/icons/$style/icon-' + char + '.png'))
+		if (FileSystem.exists(Main.getDataPath() + 'assets/shared/images/icons/$style/icon-' + char + '.png') || FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/shared/images/icons/$style/icon-' + char + '.png'))
 		{
 			loadGraphic(Paths.image('icons/$style/icon-' + char, 'shared'), true, 150, 150);
 
