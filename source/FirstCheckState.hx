@@ -28,72 +28,21 @@ class FirstCheckState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-		if (InternetConnection.isAvailable() && !isDebug)
+		switch (_variables.firstTime)
 		{
-			var http = new haxe.Http("https://raw.githubusercontent.com/Verwex/Funkin-Mic-d-Up-SC/main/versionShit.txt");
-			var returnedData:Array<String> = [];
-
-			http.onData = function(data:String)
-			{
-				returnedData[0] = data.substring(0, data.indexOf(';'));
-				returnedData[1] = data.substring(data.indexOf('-'), data.length);
-
-				if (!Application.current.meta.get('version').contains(returnedData[0].trim())
-					&& !OutOfDate.leftState
-					&& MainMenuState.nightly == "")
-				{
-					trace('outdated lmao! ' + returnedData[0] + ' != ' + Application.current.meta.get('version'));
-					OutOfDate.needVer = returnedData[0];
-					OutOfDate.changelog = returnedData[1];
-
-					FlxG.switchState(new OutOfDate());
-				}
-				else
-				{
-					switch (_variables.firstTime)
-					{
-						case true:
-							FlxG.switchState(new FirstTimeState()); // First time language setting
-						case false:
-							FlxG.switchState(new TitleState()); // First time language setting
-					}
-				}
-			}
-
-			http.onError = function(error)
-			{
-				trace('error: $error');
-				switch (_variables.firstTime)
-				{
-					case true:
-						FlxG.switchState(new FirstTimeState()); // First time language setting
-					case false:
-						FlxG.switchState(new TitleState()); // First time language setting
-				}
-			}
-
-			http.request();
-			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
-		}
-		else
-		{
-			trace('fucking offline noob');
-			switch (_variables.firstTime)
-			{
-				case true:
-					FlxG.switchState(new FirstTimeState()); // First time language setting
-				case false:
-	                                //var video = new WebmPlayerS("assets/videos/paint.webm", true);
-                                        //video.endcallback = () -> {
-                                            //remove(video);
-                                            //FlxG.switchState(new TitleState());
-                                        //}
-                                        //video.setGraphicSize(FlxG.width);
-                                        //video.updateHitbox();
-                                        //add(video);
-                                        //video.play();
-                                        FlxG.switchState(new TitleState());
-			}
+			case true:
+	                    // First time language setting
+                            var video = new WebmPlayerS("assets/videos/paint.webm", true);
+                            video.endcallback = () -> {
+                                  remove(video);
+                                  FlxG.switchState(new FirstTimeState());
+                            }
+                            video.setGraphicSize(FlxG.width);
+                            video.updateHitbox();
+                            add(video);
+                            video.play();
+			case false:
+                            FlxG.switchState(new TitleState());
 		}
 	}
 }
