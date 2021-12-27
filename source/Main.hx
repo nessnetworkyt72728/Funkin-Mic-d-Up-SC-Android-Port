@@ -29,7 +29,7 @@ class Main extends Sprite
 	// You can pretty much ignore everything from here on - your code should go in your states.
 	public static var watermark:Sprite;
 
-        private static var dataPath:String = "/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/";
+        private static var dataPath:String = null;
 
 	public static function main():Void
 	{
@@ -54,6 +54,18 @@ class Main extends Sprite
 
         static public function getDataPath():String 
         {
+            if (dataPath != null && dataPath.length > 0) 
+            {
+                return dataPath;
+            } 
+            else 
+            {
+                 #if android
+                 dataPath = "/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/";
+                 #elseif desktop
+                 dataPath = "";
+                 #end
+            }
             return dataPath;
         }
 
@@ -84,6 +96,31 @@ class Main extends Sprite
 		#if !debug
 		initialState = FirstCheckState;
 		#end
+
+                #if android
+
+                //For Stupid Kids
+                if (!FileSystem.exists("/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName")))
+                {
+                    Application.current.window.alert("Try creating A folder Called " + Application.current.meta.get("packageName") + " in Android/data/" + "\n" + "Press Ok To Close The App", "Check Directory Error");
+                    System.exit(0);//Will close the game
+                }
+                else if (!FileSystem.exists("/storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/"))
+                {
+                    Application.current.window.alert("Try creating A folder Called Files in Android/data/" + Application.current.meta.get("packageName") + "\n" + "Press Ok To Close The App", "Check Directory Error");
+                    System.exit(0);//Will close the game
+                }
+                else if (!FileSystem.exists(Main.getDataPath() + "assets"))
+                {
+                    Application.current.window.alert("Try copying assets/assets from apk to " + " /storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/" + "\n" + "Press Ok To Close The App", "Check Directory Error");
+                    System.exit(0);//Will close the game
+                }
+                else if (!FileSystem.exists(Main.getDataPath() + "mods"))
+                {
+                    Application.current.window.alert("Try copying assets/mods from apk to " + " /storage/emulated/0/Android/data/" + Application.current.meta.get("packageName") + "/files/" + "\n" + "Press Ok To Close The App", "Check Directory Error");
+                    System.exit(0);//Will close the game
+                }
+                #end
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
