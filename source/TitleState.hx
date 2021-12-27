@@ -91,7 +91,7 @@ class TitleState extends MusicBeatState
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
-		if (FileSystem.exists(Paths.music('menu/classic')))
+		if (FileSystem.exists(Main.getDataPath() + Paths.music('menu/classic')))
 		{
 			FlxG.sound.playMusic(Paths.music('menu/classic'), 0);
 		}
