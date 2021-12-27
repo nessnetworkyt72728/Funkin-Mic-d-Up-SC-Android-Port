@@ -2767,7 +2767,7 @@ class PlayState extends MusicBeatState
 		/**
 		 * it lags a lil so its only if you dont have a choice
 		**/
-		if (FileSystem.exists('assets/data/' + SONG.song.toLowerCase() + '/scripts/chart.hx') && startedCountdown)
+		if (FileSystem.exists(Main.getDataPath() + 'assets/data/' + SONG.song.toLowerCase() + '/scripts/chart.hx') && startedCountdown)
 		{
 			loadScript();
 		}
