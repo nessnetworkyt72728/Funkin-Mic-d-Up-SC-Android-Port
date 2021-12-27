@@ -166,7 +166,7 @@ class DialogueBox extends FlxSpriteGroup
 
 		if (curBox != null)
 		{
-			var data:String = File.getContent(Paths.json('dialogueBoxes/' + curBox));
+			var data:String = File.getContent(Main.getDataPath() + Paths.json('dialogueBoxes/' + curBox));
 			_dialogue = Json.parse(data);
 		}
 
