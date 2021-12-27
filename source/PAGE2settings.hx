@@ -300,10 +300,10 @@ class PAGE2settings extends MusicBeatSubstate
 
 				_variables.music = MainVariables.musicList[mus];
 
-				if (FileSystem.exists(Paths.music('menu/' + _variables.music)))
+				if (FileSystem.exists(Main.getDataPath() + Paths.music('menu/' + _variables.music)))
 				{
 					FlxG.sound.playMusic(Paths.music('menu/' + _variables.music), _variables.mvolume / 100);
-					Conductor.changeBPM(Std.parseFloat(File.getContent('assets/music/menu/' + _variables.music + '_BPM.txt')));
+					Conductor.changeBPM(Std.parseFloat(File.getContent(Main.getDataPath() + 'assets/music/menu/' + _variables.music + '_BPM.txt')));
 				}
 				else
 				{
