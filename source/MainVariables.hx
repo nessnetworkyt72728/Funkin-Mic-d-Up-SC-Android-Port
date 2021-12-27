@@ -97,7 +97,7 @@ class MainVariables
 
 	public static function Save():Void
 	{
-		File.saveContent(Main.getDataPath() + ('config-$configVersion.json'), Json.stringify(_variables, null, '    '));
+		File.saveContent(Main.getDataPath() + 'config-$configVersion.json', Json.stringify(_variables, null, '    '));
 	}
 
 	public static function Load():Void
@@ -182,9 +182,9 @@ class MainVariables
 				hitsound: "none",
 				botplay: false,
 				hvolume: 100,
-                chromakey: false,
-                healthbarvis: false,
-                charactervis: false,
+                                chromakey: false,
+                                healthbarvis: false,
+                                charactervis: false,
 				bgAlpha: 1,
 				enemyAlpha: 0.3,
 				autoPause: true,
@@ -208,7 +208,7 @@ class MainVariables
 		{
 			try
 			{
-				var data:String = File.getContent(Main.getDataPath() + ('config-$configVersion.json'));
+				var data:String = File.getContent(Main.getDataPath() + 'config-$configVersion.json');
 				_variables = Json.parse(data);
 			}
 			catch (error)
