@@ -184,11 +184,6 @@ class MainMenuState extends MusicBeatState
 				FlxG.switchState(new TitleStateReturn());
 			}
 
-			if (FlxG.keys.pressed.CONTROL && FlxG.keys.justPressed.R)
-			{
-				TitleState.restart();
-			}
-
 			if (controls.ACCEPT)
 			{
 				if (optionShit[curSelected] == 'support')
