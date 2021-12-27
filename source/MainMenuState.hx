@@ -49,7 +49,7 @@ class MainMenuState extends MusicBeatState
 
 		if (!FlxG.sound.music.playing)
 		{
-			if (FileSystem.exists(Paths.music('menu/' + _variables.music)))
+			if (FileSystem.exists(Main.getDataPath() + Paths.music('menu/' + _variables.music)))
 			{
 				FlxG.sound.playMusic(Paths.music('menu/' + _variables.music), _variables.mvolume / 100);
 				Conductor.changeBPM(Std.parseFloat(File.getContent('assets/music/menu/' + _variables.music + '_BPM.txt')));
