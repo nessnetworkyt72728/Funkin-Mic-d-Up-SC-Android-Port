@@ -1,7 +1,7 @@
 package;
 
 import lime.system.System;
-import seedyrng.Seedy;
+//import seedyrng.Seedy;
 import sys.FileSystem;
 import lime.app.Application;
 import openfl.Lib;
@@ -23,9 +23,9 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import openfl.Assets;
 import MainVariables._variables;
-import seedyrng.Xorshift64Plus;
-import seedyrng.Random;
-import Random.Random as Bitchom;
+//import seedyrng.Xorshift64Plus;
+//import seedyrng.Random;
+//import Random.Random as Bitchom;
 
 using StringTools;
 using Std;
@@ -51,7 +51,7 @@ class TitleState extends MusicBeatState
 
 	var wackyImage:FlxSprite;
 
-	public static var setSeed:Random;
+	//public static var setSeed:Random;
 
 	override public function create():Void
 	{
@@ -62,8 +62,8 @@ class TitleState extends MusicBeatState
 		#end
 		curWacky = FlxG.random.getObject(getIntroTextShit());
 
-		setSeed = new Random(1, new Xorshift64Plus());
-		setSeed.setStringSeed("aaandthegamehasbeenwon1038");
+		//setSeed = new Random(1, new Xorshift64Plus());
+	        //setSeed.setStringSeed("aaandthegamehasbeenwon1038");
 
 		// DEBUG BULLSHIT
 
