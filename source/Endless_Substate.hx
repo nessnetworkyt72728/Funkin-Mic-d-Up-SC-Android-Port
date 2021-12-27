@@ -313,7 +313,7 @@ class Endless_Substate extends MusicBeatSubstate
 
         if (!FileSystem.exists(Main.getDataPath() + 'presets/endless/'+songTitle+'_'+difficulty))
             {
-                File.saveContent((Main.getDataPath() + 'presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless, null, '    '));
+                File.saveContent(Main.getDataPath() + 'presets/endless/'+songTitle+'_'+difficulty, Json.stringify(_endless, null, '    '));
             }
         else
             {
@@ -324,6 +324,6 @@ class Endless_Substate extends MusicBeatSubstate
 
     public static function saveCurrent(songTitle:String, difficulty:Int)
         {
-            File.saveContent((Main.getDataPath() + 'presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless, null, '    '));
+            File.saveContent(Main.getDataPath() + 'presets/endless/'+songTitle+'_'+difficulty, Json.stringify(_endless, null, '    '));
         }
 }
