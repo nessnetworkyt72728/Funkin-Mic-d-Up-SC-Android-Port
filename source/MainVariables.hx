@@ -97,7 +97,7 @@ class MainVariables
 
 	public static function Save():Void
 	{
-		File.saveContent((Main.getDataPath() + 'config-$configVersion.json'), Json.stringify(_variables, null, '    '));
+		File.saveContent(Main.getDataPath() + ('config-$configVersion.json'), Json.stringify(_variables, null, '    '));
 	}
 
 	public static function Load():Void
@@ -208,7 +208,7 @@ class MainVariables
 		{
 			try
 			{
-				var data:String = File.getContent((Main.getDataPath() + 'config-$configVersion.json'));
+				var data:String = File.getContent(Main.getDataPath() + ('config-$configVersion.json'));
 				_variables = Json.parse(data);
 			}
 			catch (error)
