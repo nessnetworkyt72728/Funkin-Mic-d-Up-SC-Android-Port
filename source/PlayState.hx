@@ -379,9 +379,9 @@ class PlayState extends MusicBeatState
 		else if (_modifiers.Perfect || _modifiers.BadTrip || _modifiers.ShittyEnding || _modifiers.TruePerfect)
 			dialogueSuffix = "-perfect";
 
-		if (FileSystem.exists(Paths.txt(SONG.song.toLowerCase() + '/dialogue$dialogueSuffix')))
+		if (FileSystem.exists(Main.getDataPath() + Paths.txt(SONG.song.toLowerCase() + '/dialogue$dialogueSuffix')))
 		{
-			dialogue = File.getContent(Paths.txt(SONG.song.toLowerCase() + '/dialogue$dialogueSuffix')).trim().split('\n');
+			dialogue = File.getContent(Main.getDataPath() + Paths.txt(SONG.song.toLowerCase() + '/dialogue$dialogueSuffix')).trim().split('\n');
 
 			for (i in 0...dialogue.length)
 			{
@@ -901,7 +901,7 @@ class PlayState extends MusicBeatState
 
 		if (curStage == "schoolEvil" && !_variables.chromakey)
 		{
-			var image = Image.fromFile('assets/images/hell.png');
+			var image = Image.fromFile(Main.getDataPath() + 'assets/images/hell.png');
 			Application.current.window.setIcon(image);
 		}
 
@@ -1588,7 +1588,7 @@ class PlayState extends MusicBeatState
 				{
 					item.x -= 50;
 				}
-				if (FileSystem.exists('assets/data/' + SONG.song.toLowerCase() + '/scripts/chart.hx'))
+				if (FileSystem.exists(Main.getDataPath() + 'assets/data/' + SONG.song.toLowerCase() + '/scripts/chart.hx'))
 				{
 					modState.set("strum0", strumLineNotes.members[0]);
 					modState.set("strum1", strumLineNotes.members[1]);
@@ -1601,7 +1601,7 @@ class PlayState extends MusicBeatState
 					modState.set("strum8", strumLineNotes.members[8]);
 					modState.set("strum9", strumLineNotes.members[9]);
 					hscript();
-					if (FileSystem.exists('assets/data/' + SONG.song.toLowerCase() + '/scripts/start.hx'))
+					if (FileSystem.exists(Main.getDataPath() + 'assets/data/' + SONG.song.toLowerCase() + '/scripts/start.hx'))
 						loadStartScript();
 					trace('SOME MODIFIERS ARE DISABLED! THEY WONT WORK PROPERLY WITH MODCHARTS');
 				}
@@ -1611,7 +1611,7 @@ class PlayState extends MusicBeatState
 				if (_variables.scroll != 'left' && _variables.scroll != 'right')
 					generateStaticArrows(0);
 				generateStaticArrows(1);
-				if (FileSystem.exists('assets/data/' + SONG.song.toLowerCase() + '/scripts/chart.hx'))
+				if (FileSystem.exists(Main.getDataPath() + 'assets/data/' + SONG.song.toLowerCase() + '/scripts/chart.hx'))
 				{
 					modState.set("strum0", strumLineNotes.members[0]);
 					modState.set("strum1", strumLineNotes.members[1]);
@@ -1622,7 +1622,7 @@ class PlayState extends MusicBeatState
 					modState.set("strum6", strumLineNotes.members[6]);
 					modState.set("strum7", strumLineNotes.members[7]);
 					hscript();
-					if (FileSystem.exists('assets/data/' + SONG.song.toLowerCase() + '/scripts/start.hx'))
+					if (FileSystem.exists(Main.getDataPath() + 'assets/data/' + SONG.song.toLowerCase() + '/scripts/start.hx'))
 						loadStartScript();
 					trace('SOME MODIFIERS ARE DISABLED! THEY WONT WORK PROPERLY WITH MODCHARTS');
 				}
