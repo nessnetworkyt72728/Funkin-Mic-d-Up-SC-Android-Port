@@ -44,20 +44,16 @@ class Song
 
 	public static function loadFromJson(jsonInput:String, ?folder:String):SwagSong
 	{
-		#if !sys
-		var rawJson = Assets.getText(Paths.json(folder.toLowerCase() + '/' + jsonInput.toLowerCase())).trim();
-		#else
 		var rawJson:String = null;
 		try
 		{
-			rawJson = sys.io.File.getContent(Paths.json(folder.toLowerCase() + '/' + jsonInput.toLowerCase())).trim();
+			rawJson = sys.io.File.getContent(Main.getDataPath() + Paths.json(folder.toLowerCase() + '/' + jsonInput.toLowerCase())).trim();
 		}
 		catch (error)
 		{
 			Application.current.window.alert('Chart is unreadable!\nDETAILS: ' + error, 'Er....');
-			rawJson = sys.io.File.getContent(Paths.json('test' + '/' + 'test.json')).trim();
+			rawJson = sys.io.File.getContent(Main.getDataPath() + Paths.json('test' + '/' + 'test.json')).trim();
 		}
-		#end
 
 		while (!rawJson.endsWith("}"))
 		{
