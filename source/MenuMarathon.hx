@@ -335,7 +335,7 @@ class MenuMarathon extends MusicBeatState
 				songNames: []
 			}
 
-			File.saveContent((Main.getDataPath() + 'presets/marathon/current'), Json.stringify(_marathon, null, '    '));
+			File.saveContent(Main.getDataPath() + 'presets/marathon/current', Json.stringify(_marathon, null, '    '));
 		}
 		else
 		{
@@ -352,7 +352,7 @@ class MenuMarathon extends MusicBeatState
 			songDifficulties: PlayState.difficultyPlaylist,
 			songNames: PlayState.storyPlaylist
 		}
-		File.saveContent((Main.getDataPath() + 'presets/marathon/current'), Json.stringify(_marathon, null, '    '));
+		File.saveContent(Main.getDataPath() + 'presets/marathon/current', Json.stringify(_marathon, null, '    '));
 	}
 
 	public static function loadPreset(input:String):Void
@@ -372,7 +372,7 @@ class MenuMarathon extends MusicBeatState
 			songDifficulties: PlayState.difficultyPlaylist,
 			songNames: PlayState.storyPlaylist
 		}
-		File.saveContent((Main.getDataPath() + 'presets/marathon/' + input), Json.stringify(_marathon, null, '    ')); // just an example for now
+		File.saveContent(Main.getDataPath() + 'presets/marathon/' + input, Json.stringify(_marathon, null, '    ')); // just an example for now
 	}
 }
 
