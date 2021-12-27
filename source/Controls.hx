@@ -652,7 +652,7 @@ class Controls extends FlxActionSet
 		{
 			name4 = StringTools.replace(name4, key + "\n" + value, key + "," + value);
 		}
-		File.saveContent('assets/data/defaultControls.txt', name4);
+		File.saveContent(Main.getDataPath() + 'assets/data/defaultControls.txt', name4);
 		FlxG.save.flush();
 	}
 
