@@ -191,13 +191,13 @@ class ModifierVariables
         if (!FileSystem.isDirectory(Main.getDataPath() + 'presets/modifiers'))
             FileSystem.createDirectory(Main.getDataPath() + 'presets/modifiers');
 
-        File.saveContent((Main.getDataPath() + 'presets/modifiers/current'), Json.stringify(_modifiers, null, '    '));
+        File.saveContent(Main.getDataPath() + 'presets/modifiers/current', Json.stringify(_modifiers, null, '    '));
     }
 
     public static function savePreset(input:String):Void
-        {
-            File.saveContent(Main.getDataPath() + ('presets/modifiers/'+input), Json.stringify(_modifiers, null, '    ')); //just an example for now
-        }
+    {
+        File.saveContent(Main.getDataPath() + 'presets/modifiers/'+input, Json.stringify(_modifiers, null, '    ')); //just an example for now
+    }
 
     public static function loadPreset(input:String):Void
     {
