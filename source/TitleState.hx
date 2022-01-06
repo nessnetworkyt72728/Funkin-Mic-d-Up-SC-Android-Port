@@ -23,9 +23,9 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import openfl.Assets;
 import MainVariables._variables;
-//import seedyrng.Xorshift64Plus;
-//import seedyrng.Random;
-//import Random.Random as Bitchom;
+import seedyrng.Xorshift64Plus;
+import seedyrng.Random;
+import Random.Random as Bitchom;
 
 using StringTools;
 using Std;
@@ -51,19 +51,16 @@ class TitleState extends MusicBeatState
 
 	var wackyImage:FlxSprite;
 
-	//public static var setSeed:Random;
+	public static var setSeed:Random;
 
 	override public function create():Void
 	{
 		// systools.Registry.setValue(systools.Registry.HKEY_CURRENT_USER, 'deez\\nuts\\gottem', 'score', "deeznutsgottem");
 		// systools.Registry.setValue(systools.Registry.HKEY_CURRENT_USER, 'deez\\nuts\\gottem', 'seed', Bitchom.int(0, 999999).string());
-		#if polymod
-		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
-		#end
 		curWacky = FlxG.random.getObject(getIntroTextShit());
 
-		//setSeed = new Random(1, new Xorshift64Plus());
-	        //setSeed.setStringSeed("aaandthegamehasbeenwon1038");
+		setSeed = new Random(1, new Xorshift64Plus());
+	        setSeed.setStringSeed("aaandthegamehasbeenwon1038");
 
 		// DEBUG BULLSHIT
 
