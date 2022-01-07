@@ -274,7 +274,7 @@ class PAGE6settings extends MusicBeatSubstate
                 FlxG.save.bind('save', "Funkin Mic'd Up");
             case 'config':
                 FlxG.sound.play(Paths.sound('confirmMenu'), _variables.svolume/100);
-                FileSystem.deleteFile(Main.getDataPath() + 'config.json');
+                FileSystem.deleteFile(Main.getDataPath() + 'config-' + MainVariables.configVersion + '.json');
                 FlxG.sound.music.volume = 1;
                 FlxG.sound.playMusic(Paths.music('freakyMenu'), _variables.mvolume/100);
                 Conductor.changeBPM(102);
@@ -283,7 +283,7 @@ class PAGE6settings extends MusicBeatSubstate
                 MainVariables.Save();
                 (cast (Lib.current.getChildAt(0), Main)).changeColor(0xFFFFFFFF);
                 Main.watermark.visible = true;
-                Lib.application.window.maximized = false;
+                //Lib.application.window.maximized = false;
         }
     }
 
