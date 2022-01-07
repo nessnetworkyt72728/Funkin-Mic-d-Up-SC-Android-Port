@@ -41,7 +41,7 @@ class Marathon_Substate extends MusicBeatSubstate
         blackBarThingie.scale.x = 0;
         FlxTween.tween(blackBarThingie, { 'scale.x': 300}, 0.5, { ease: FlxEase.expoOut});
 
-        presets = FileSystem.readDirectory(Main.getDataPath() + ''presets/marathon');
+        presets = FileSystem.readDirectory(Main.getDataPath() + 'presets/marathon');
         presets.remove(Main.getDataPath() + ''current');
 
         trace(presets);
