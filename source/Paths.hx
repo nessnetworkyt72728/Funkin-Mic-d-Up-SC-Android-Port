@@ -215,7 +215,6 @@ class Paths
 
 	inline static public function json(key:String, ?library:String)
 	{
-	Q
 		if (FileSystem.exists(Main.getDataPath() + 'mods/mainMods/_append/data/$key.json'))
 		{
 			return Main.getDataPath() + 'mods/mainMods/_append/data/$key.json';
