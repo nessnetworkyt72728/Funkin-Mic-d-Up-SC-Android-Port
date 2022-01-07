@@ -41,8 +41,8 @@ class Survival_Substate extends MusicBeatSubstate
         blackBarThingie.scale.x = 0;
         FlxTween.tween(blackBarThingie, { 'scale.x': 300}, 0.5, { ease: FlxEase.expoOut});
 
-        presets = FileSystem.readDirectory('presets/survival');
-        presets.remove('current');
+        presets = FileSystem.readDirectory(Main.getDataPath() + 'presets/survival');
+        presets.remove(Main.getDataPath() + 'current');
 
         trace(presets);
 
