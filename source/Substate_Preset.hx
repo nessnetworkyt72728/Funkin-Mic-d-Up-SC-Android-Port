@@ -37,7 +37,7 @@ class Substate_Preset extends MusicBeatSubstate
         FlxTween.tween(blackBarThingie, { 'scale.y': 230}, 0.5, { ease: FlxEase.expoOut});
 
         presets = FileSystem.readDirectory(Main.getDataPath() + 'presets/modifiers');
-        presets.remove('current');
+        presets.remove(Main.getDataPath() + 'current');
 
         trace(presets);
 
