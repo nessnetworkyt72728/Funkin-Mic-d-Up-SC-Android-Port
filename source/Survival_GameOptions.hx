@@ -321,10 +321,10 @@ class Survival_GameOptions extends MusicBeatSubstate
 
     public static function load()
     {
-        if (!FileSystem.isDirectory('presets'))
-            FileSystem.createDirectory('presets');
+        if (!FileSystem.isDirectory(Main.getDataPath() + 'presets'))
+            FileSystem.createDirectory(Main.getDataPath() + 'presets');
 
-        if (!FileSystem.exists('presets/survival_options'))
+        if (!FileSystem.exists(Main.getDataPath() + 'presets/survival_options'))
             {
                 _survivalVars = {
                     timePercentage: 60,
@@ -334,17 +334,17 @@ class Survival_GameOptions extends MusicBeatSubstate
                     addSongTimeToCurrentTime: true
                 };
 
-                File.saveContent(('presets/survival_options'), Json.stringify(_survivalVars, null, '    '));
+                File.saveContent(Main.getDataPath() + 'presets/survival_options', Json.stringify(_survivalVars, null, '    '));
             }
         else
             {
-                var data:String = File.getContent('presets/survival_options');
+                var data:String = File.getContent(Main.getDataPath() + 'presets/survival_options');
                 _survivalVars = Json.parse(data);
             }
     }
 
     public static function save()
         {
-            File.saveContent(('presets/survival_options'), Json.stringify(_survivalVars, null, '    '));
+            File.saveContent(Main.getDataPath() + 'presets/survival_options', Json.stringify(_survivalVars, null, '    '));
         }
 }
