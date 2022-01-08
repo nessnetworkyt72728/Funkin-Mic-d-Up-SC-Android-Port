@@ -8,6 +8,7 @@ import MainVariables._variables;
 #if android
 import flixel.input.actions.FlxActionInput;
 import ui.FlxVirtualPad;
+import flixel.FlxG;
 #end
 
 
