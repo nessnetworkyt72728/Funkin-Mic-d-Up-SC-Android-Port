@@ -318,7 +318,7 @@ class Controls extends FlxActionSet
 		action.add(input);
 	}
 	
-	public function setVirtualPadUI(virtualPad:FlxVirtualPad, ?DPad:FlxDPadMode, ?Action:FlxActionMode) 
+	public function setVirtualPad(virtualPad:FlxVirtualPad, ?DPad:FlxDPadMode, ?Action:FlxActionMode) 
 	{
 		if (DPad == null)
 			DPad = NONE;
