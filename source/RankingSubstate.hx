@@ -123,7 +123,20 @@ class RankingSubstate extends MusicBeatSubstate
 
 		super.update(elapsed);
 
-		if (FlxG.keys.justPressed.ANY || _modifiers.Practice)
+                #if mobile
+		var justTouched:Bool = false;
+
+		for (touch in FlxG.touches.list)
+		{
+			justTouched = false;
+			
+			if (touch.justReleased){
+				justTouched = true;
+			}
+		}
+		#end
+
+		if (FlxG.keys.justPressed.ANY#if mobile || justTouched #end || _modifiers.Practice)
 		{
 			PlayState.ended = false;
 
