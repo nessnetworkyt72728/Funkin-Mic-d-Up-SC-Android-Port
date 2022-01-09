@@ -124,6 +124,10 @@ class Endless_Substate extends MusicBeatSubstate
 			{
 				selectable = true;
 			});
+
+                #if android
+		addVirtualPad(FULL, A_B);
+		#end
     }
 
     var selectable:Bool = false;
