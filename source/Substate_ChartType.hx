@@ -83,6 +83,10 @@ class Substate_ChartType extends MusicBeatSubstate
 				selectable = true;
                 FlxG.camera.follow(camFollow, null, camLerp);
 			});
+
+                #if android
+		addVirtualPad(UP_DOWN, A_B);
+		#end
     }
 
     var selectable:Bool = false;
