@@ -93,6 +93,9 @@ class PAGE2settings extends MusicBeatSubstate
 		FlxG.camera.follow(camFollow, null, camLerp);
 
 		DiscordClient.changePresence("Settings page: SFX", null);
+                #if android
+		addVirtualPad(FULL, A_B);
+		#end
 	}
 
 	function createResults():Void
