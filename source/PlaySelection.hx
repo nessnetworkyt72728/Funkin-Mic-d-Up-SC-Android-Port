@@ -116,6 +116,10 @@ class PlaySelection extends MusicBeatState
 
 		changeItem();
 
+                #if android
+		addVirtualPad(LEFT_RIGHT, A_B);
+		#end
+
 		super.create();
 
 		new FlxTimer().start(1.1, function(tmr:FlxTimer)
