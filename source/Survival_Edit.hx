@@ -41,6 +41,10 @@ class Survival_Edit extends MusicBeatSubstate
             {
                 selectable = true;
             });
+
+#if android
+		addVirtualPad(UP_DOWN, A_B);
+		#end
     }
 
     var selectable:Bool = false;
