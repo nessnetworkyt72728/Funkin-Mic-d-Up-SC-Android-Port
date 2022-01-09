@@ -173,6 +173,10 @@ class MenuMarathon extends MusicBeatState
 			}
 		}
 
+                #if android
+		addVirtualPad(UP_DOWN, A_B);
+		#end
+
 		super.create();
 
 		DiscordClient.changePresence("Selecting anything for a marathon.", null);
