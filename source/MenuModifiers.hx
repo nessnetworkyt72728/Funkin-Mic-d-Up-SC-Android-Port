@@ -152,6 +152,10 @@ class MenuModifiers extends MusicBeatState
         niceText.setBorderStyle(OUTLINE, 0xFF000000, 3, 1);
 		add(niceText);
 
+                #if android
+		addVirtualPad(FULL, A_B);
+		#end
+
 		explain.alpha = niceText.alpha = multi.alpha = name.alpha = 0;
 		FlxTween.tween(name, {alpha:1}, 0.7, {ease: FlxEase.quartInOut, startDelay: 0.4});
 		FlxTween.tween(multi, {alpha:1}, 0.7, {ease: FlxEase.quartInOut, startDelay: 0.4});
