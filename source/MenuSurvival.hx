@@ -157,6 +157,10 @@ class MenuSurvival extends MusicBeatState
 			}
 		}
 
+#if android
+		addVirtualPad(FULL, A_B);
+		#end
+
 		super.create();
 
 		DiscordClient.changePresence("Choosing my survival adventure.", null);
