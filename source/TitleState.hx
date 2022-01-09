@@ -55,12 +55,15 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
+		#if android
+		FlxG.android.preventDefaultKeys = [BACK];
+		#end
 		// systools.Registry.setValue(systools.Registry.HKEY_CURRENT_USER, 'deez\\nuts\\gottem', 'score', "deeznutsgottem");
 		// systools.Registry.setValue(systools.Registry.HKEY_CURRENT_USER, 'deez\\nuts\\gottem', 'seed', Bitchom.int(0, 999999).string());
 		curWacky = FlxG.random.getObject(getIntroTextShit());
 
 		setSeed = new Random(1, new Xorshift64Plus());
-	        setSeed.setStringSeed("aaandthegamehasbeenwon1038");
+	    setSeed.setStringSeed("aaandthegamehasbeenwon1038");
 
 		// DEBUG BULLSHIT
 

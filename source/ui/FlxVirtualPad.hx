@@ -157,7 +157,7 @@ class FlxVirtualPad extends FlxSpriteGroup
 
 	public static function getVirtualInputFrames():FlxAtlasFrames
 	{
-		return Paths.getPackerAtlas('virtual-input','preload');
+		return Paths.getPackerAtlas('virtual-input','preload')
 	}
 }
 
