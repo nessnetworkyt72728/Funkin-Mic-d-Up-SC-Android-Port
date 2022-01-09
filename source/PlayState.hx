@@ -37,6 +37,9 @@ import Endless_Substate._endless;
 import Survival_GameOptions._survivalVars;
 import seedyrng.Random;
 import hscript.plus.ScriptState;
+#if android
+import ui.Hitbox;
+#end
 
 using StringTools;
 using Std;
@@ -242,6 +245,10 @@ class PlayState extends MusicBeatState
 
 	var seconds:Float;
 	var survivalCountdown:FlxText;
+
+    #if android
+	var _hitbox:Hitbox;
+	#end
 
 	override public function create()
 	{
@@ -1339,6 +1346,29 @@ class PlayState extends MusicBeatState
 		LightsOutBG.cameras = [camPAUSE];
 		BlindingBG.cameras = [camPAUSE];
 
+        #if android
+		var curhitbox:HitboxType = DEFAULT;
+
+		if (_variables.fiveK) 
+		{
+			curhitbox = FIVE;
+		} 
+		else 
+		{
+			curhitbox = DEFAULT;
+		}
+		_hitbox = new Hitbox(curhitbox);
+
+		var camcontrol = new FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		_hitbox.cameras = [camcontrol];
+
+		_hitbox.visible = false;
+		
+		add(_hitbox);
+		#end
+
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -1574,6 +1604,9 @@ class PlayState extends MusicBeatState
 	{
 		inCutscene = false;
 		beginCutscene = false;
+		#if android
+		_hitbox.visible = true;
+		#end
 
 		if (gameplayArea != "Endless" || (gameplayArea == "Endless" && loops == 0))
 		{
@@ -2808,7 +2841,7 @@ class PlayState extends MusicBeatState
 			survivalCountdown.text = '$seconds';
 		}
 
-		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
+		if (FlxG.keys.justPressed.ENTER#if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
 		{
 			persistentUpdate = false;
 			persistentDraw = true;
@@ -3762,6 +3795,9 @@ class PlayState extends MusicBeatState
 			camNOTES.angle = 0;
 			camSus.angle = 0;
 			camNOTEHUD.angle = 0;
+			#if android
+		    _hitbox.visible = false;
+		    #end
 
 			if (SONG.validScore && !cheated && !_variables.botplay)
 			{
@@ -4533,20 +4569,26 @@ class PlayState extends MusicBeatState
 	private function keyShit():Void // I've invested in emma stocks
 	{
 		// control arrays, order L D R U
-		var holdArray:Array<Bool> = [controls.LEFT, controls.DOWN, controls.UP, controls.RIGHT, controls.CENTER];
+		var holdArray:Array<Bool> = [
+			controls.LEFT#if android || _hitbox.K1.pressed#end,
+			controls.DOWN#if android || _hitbox.K2.pressed#end, 
+			controls.UP#if android || _hitbox.K3.pressed#end, 
+			controls.RIGHT#if android || _hitbox.K4.pressed#end, 
+			controls.CENTER#if android || _hitbox.K5.pressed#end
+		];
 		var pressArray:Array<Bool> = [
-			controls.LEFT_P,
-			controls.DOWN_P,
-			controls.UP_P,
-			controls.RIGHT_P,
-			controls.CENTER_P
+			controls.LEFT_P#if android || _hitbox.K1.justPressed#end,
+			controls.DOWN_P#if android || _hitbox.K2.justPressed#end,
+			controls.UP_P#if android || _hitbox.K3.justPressed#end,
+			controls.RIGHT_P#if android || _hitbox.K4.justPressed#end,
+			controls.CENTER_P#if android || _hitbox.K5.justPressed#end
 		];
 		var releaseArray:Array<Bool> = [
-			controls.LEFT_R,
-			controls.DOWN_R,
-			controls.UP_R,
-			controls.RIGHT_R,
-			controls.CENTER_R
+			controls.LEFT_R#if android || _hitbox.K1.justReleased#end,
+			controls.DOWN_R#if android || _hitbox.K2.justReleased#end,
+			controls.UP_R#if android || _hitbox.K3.justReleased#end,
+			controls.RIGHT_R#if android || _hitbox.K4.justReleased#end,
+			controls.CENTER_R#if android || _hitbox.K5.justReleased#end
 		];
 
 		// HOLDS, check for sustain notes
