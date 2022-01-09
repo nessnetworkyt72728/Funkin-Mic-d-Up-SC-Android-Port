@@ -1,6 +1,6 @@
 package;
 
-//This made by Sirox for using with whatever you want
+//Original Creator Sirox
 import haxe.crypto.Md5;
 import openfl.utils.Assets;
 import webm.*;
@@ -21,45 +21,32 @@ using StringTools;
 
 class WebmPlayerS extends FlxSprite
 {
-	public var videoplayer:WebmPlayer;
+	public var player:WebmPlayer;
 	public var endcallback:Void->Void = null;
 	public var startcallback:Void->Void = null;
 	public var sound:FlxSound;
-    public var soundMultiplier:Float = 1;
-    public var prevSoundMultiplier:Float = 1;
-    public var videoFrames:Int = 0;
-    public var doShit:Bool = false;
-    public var io:WebmIo;
-    public var altSource:String;
+        public var soundMultiplier:Float = 1;
+        public var prevSoundMultiplier:Float = 1;
+        public var videoFrames:Int = 0;
+        public var doShit:Bool = false;
+        public var io:WebmIo;
+        public var altSource:String;
     
-    public var stopped:Bool = false;
+        public var stopped:Bool = false;
 	public var restarted:Bool = false;
 	public var started:Bool = false;
 	public var ended:Bool = false;
 	public var paused:Bool = false;
 	
 	public var useSound:Bool = false;
-	
-	public function new(source:String, ownCamera:Bool = false, frameSkipLimit:Int = -1, okX:Float = null, okY:Float = null, okWidth:Float = null, okHeight:Float = null) 
+
+    public function new() 
     {
-    	x = 0;
-        y = 0;
-
-    	if (okX != null) {
-        	x = okX;
-        }
-        if (okY != null) {
-        	y = okY;
-        }
-        if (okWidth != null) {
-        	width = okWidth;
-        }
-        if (okHeight != null) {
-        	height = okHeight;
-        }
-
-        super(x, y);
-        
+        super ();
+    }
+	
+    public function playVideo(source:String, ownCamera:Bool = false, frameSkipLimit:Int = -1, okX:Float = null, okY:Float = null, okWidth:Float = null, okHeight:Float = null) 
+    {     
         altSource = source;
         
         useSound = Assets.exists(altSource.replace(".webm", ".txt")) && Assets.exists(altSource.replace(".webm", ".ogg"));
@@ -68,10 +55,9 @@ class WebmPlayerS extends FlxSprite
             videoFrames = Std.parseInt(Assets.getText(altSource.replace(".webm", ".txt")));
         }
         
-        io = new WebmIoFile(getThing(altSource));
-		videoplayer = new WebmPlayer();
-		videoplayer.fuck(io, false);
-		videoplayer.addEventListener(WebmEvent.PLAY, function(e) {
+                io = new WebmIoFile(getThing(altSource));
+		player = new WebmPlayer(io, false);
+		player.addEventListener(WebmEvent.PLAY, function(e) {
 			trace("playing");
 			if (startcallback != null) {
 				startcallback();
@@ -102,17 +88,21 @@ class WebmPlayerS extends FlxSprite
 		    doShit = true;
 		}
         
-        if (frameSkipLimit != -1)
+                if (frameSkipLimit != -1)
 		{
 			WebmPlayer.SKIP_STEP_LIMIT = frameSkipLimit;	
 		}
 		
 		if (ownCamera) {
 		    var cam = new FlxCamera();
-	        FlxG.cameras.add(cam);
+	            FlxG.cameras.add(cam);
 		    cam.bgColor.alpha = 0;
 		    cameras = [cam];
 		}
+
+                setGraphicSize(FlxG.width)
+                updateHitbox();
+                play();
     }
     
     public function getThing(source:String)
@@ -128,17 +118,17 @@ class WebmPlayerS extends FlxSprite
 	
 	public function play():Void
 	{
-		videoplayer.play();
+		player.play();
 	}
 	
 	public function stop():Void
 	{
-		videoplayer.stop();
+	        player.stop();
 	}
 	
 	public function restart():Void
 	{
-		videoplayer.restart();
+		player.restart();
 	}
 	
 	public function togglePause():Void
@@ -154,24 +144,24 @@ class WebmPlayerS extends FlxSprite
 	public function clearPause():Void
 	{
 		paused = false;
-		videoplayer.removePause();
+		player.removePause();
 	}
 	
 	public function pause():Void
 	{
-		videoplayer.changePlaying(false);
+		player.changePlaying(false);
 		paused = true;
 	}
 	
 	public function resume():Void
 	{
-		videoplayer.changePlaying(true);
+		player.changePlaying(true);
 		paused = false;
 	}
 	
 	public function setAlpha(ok:Float):Void
 	{
-		videoplayer.alpha = ok;
+		player.alpha = ok;
 	}
 	
 	override public function update(elapsed:Float)
@@ -219,15 +209,9 @@ class WebmPlayerS extends FlxSprite
 	}
 	
 	override public function destroy() {
-        videoplayer.stop();
+        player.stop();
         super.destroy();
     }
-}
-
-class Dimensions
-{
-	public static var width:Int = 1280;
-	public static var height:Int = 720;
 }
 
 class AndroidThing
