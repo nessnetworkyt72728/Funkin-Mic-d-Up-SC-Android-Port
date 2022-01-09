@@ -207,6 +207,10 @@ class MenuWeek extends MusicBeatState
 
 		trace("Line 165");
 
+#if android
+		addVirtualPad(FULL, A_B);
+		#end
+
 		super.create();
 
 		FlxTween.tween(bg, {alpha: 1}, 0.8, {ease: FlxEase.quartInOut});
