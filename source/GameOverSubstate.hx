@@ -75,6 +75,10 @@ class GameOverSubstate extends MusicBeatSubstate
 			press.alpha = 0;
 			FlxTween.tween(press, {alpha: 1, y: 550 - press.height}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		}
+
+                #if android
+		addVirtualPad(NONE, A_B);
+		#end
 	}
 
 	override function update(elapsed:Float)
