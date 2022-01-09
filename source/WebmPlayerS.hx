@@ -104,7 +104,7 @@ class WebmPlayerS extends FlxSprite
         
         if (frameSkipLimit != -1)
 		{
-			videoplayer.SKIP_STEP_LIMIT = frameSkipLimit;	
+			WebmPlayer.SKIP_STEP_LIMIT = frameSkipLimit;	
 		}
 		
 		if (ownCamera) {
