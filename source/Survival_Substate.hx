@@ -91,6 +91,10 @@ class Survival_Substate extends MusicBeatSubstate
 			{
 				selectable = true;
 			});
+
+                #if android
+		addVirtualPad(UP_DOWN, A_B);
+		#end
     }
 
     var selectable:Bool = false;
