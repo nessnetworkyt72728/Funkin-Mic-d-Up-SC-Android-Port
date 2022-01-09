@@ -683,7 +683,7 @@ class ChartingState extends MusicBeatState
 				dummyArrow.y = Math.floor(FlxG.mouse.y / (GRID_SIZE * gridYScale)) * GRID_SIZE * gridYScale;
 		}
 
-		if (FlxG.keys.justPressed.ENTER)
+		if (FlxG.keys.justPressed.ENTER#if android || FlxG.android.justReleased.BACK #end)
 		{
 			lastSection = curSection;
 
