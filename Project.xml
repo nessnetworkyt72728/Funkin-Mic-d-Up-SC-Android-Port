@@ -124,8 +124,6 @@
 	<haxelib name="seedyrng"/> <!--haxelib install seedyrng-->
 	<haxelib name="random"/> <!--haxelib install random-->
 	
-	<haxelib name="actuate"/>
-	<haxelib name="extension-webm"/>
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
 
 	<!-- <haxelib name="markdown" /> -->
