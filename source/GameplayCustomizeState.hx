@@ -136,7 +136,7 @@ class GameplayCustomizeState extends MusicBeatState
             MainVariables.Save();
         }
 
-        if (controls.BACK)
+        if (controls.BACK#if android || FlxG.android.justReleased.BACK #end)
         {
             FlxG.mouse.visible = false;
             FlxG.sound.play(Paths.sound('cancelMenu'));
