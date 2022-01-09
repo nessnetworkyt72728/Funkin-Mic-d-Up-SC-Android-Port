@@ -103,6 +103,10 @@ class ChromaSettings extends MusicBeatSubstate
         #if desktop
 			DiscordClient.changePresence("Settings page: Chromakey", null);
 		#end
+
+                #if android
+		addVirtualPad(FULL, B);
+		#end
     }
 
         function createResults():Void
