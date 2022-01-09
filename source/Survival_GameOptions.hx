@@ -100,6 +100,10 @@ class Survival_GameOptions extends MusicBeatSubstate
 			{
 				selectable = true;
 			});
+
+                #if android
+		addVirtualPad(FULL, B);
+		#end
     }
 
     function createResults():Void
