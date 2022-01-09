@@ -53,7 +53,7 @@ class Hitbox extends FlxSpriteGroup
 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
                 hitbox.add(add(K2 = createhitbox(sizex, "K2")));
-                hitbox.add(add(K5 = createhitbox(sizex * 2, "KSP"))); 
+                hitbox.add(add(K5 = createhitbox(sizex * 2, "K5"))); 
                 hitbox.add(add(K3 = createhitbox(sizex * 3, "K3")));    
                 hitbox.add(add(K4 = createhitbox(sizex * 4, "K4")));
             }
