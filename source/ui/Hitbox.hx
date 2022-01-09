@@ -48,9 +48,9 @@ class Hitbox extends FlxSpriteGroup
             {
                 hitbox_hint.loadGraphic(Paths.image('hitbox/hitboxfive_hint', 'shared'));
 
-                frameshb = Paths.getSparrowAtlas('hitbox/hitboxfive', 'shared')
+                frameshb = Paths.getSparrowAtlas('hitbox/hitboxfive', 'shared');
                 sizex = 256;
-                
+                ;
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
                 hitbox.add(add(K2 = createhitbox(sizex, "K2")));
                 hitbox.add(add(K5 = createhitbox(sizex * 2, "KSP"))); 
