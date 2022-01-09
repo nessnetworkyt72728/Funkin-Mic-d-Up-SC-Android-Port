@@ -39,6 +39,10 @@ class FirstTimeState extends MusicBeatState
 		txt.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		add(txt);
 
+                #if android
+		addVirtualPad(NONE, A);
+		#end		
+
 		super.create();
 	}
 
@@ -48,7 +52,7 @@ class FirstTimeState extends MusicBeatState
 		sinMod += 0.007;
 		txt.y = Math.sin(sinMod) * 60 + 100;
 
-		if (FlxG.keys.justPressed.ENTER)
+		if (controls.ACCEPT)
 		{
 			_variables.firstTime = false;
 			leftState = true;
