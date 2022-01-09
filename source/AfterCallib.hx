@@ -23,11 +23,15 @@ class AfterCallib extends MusicBeatState
 		txt.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		txt.screenCenter();
 		add(txt);
+
+                #if android
+		addVirtualPad(NONE, A);
+		#end
 	}
 
 	override function update(elapsed:Float)
 	{
-		if (FlxG.keys.justPressed.ENTER)
+		if (controls.ACCEPT)
 		{
 			FlxG.switchState(new TitleState());
 		}
