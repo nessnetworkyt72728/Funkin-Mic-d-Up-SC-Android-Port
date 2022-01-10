@@ -325,7 +325,6 @@ class TitleState extends MusicBeatState
 
 			new FlxTimer().start(1.7, function(tmr:FlxTimer)
 			{
-				// FlxG.switchState(new GameplayCustomization());
 				if (_variables.music != 'classic' && MainVariables.musicList != [])
 					FlxG.sound.music.stop();
 				
