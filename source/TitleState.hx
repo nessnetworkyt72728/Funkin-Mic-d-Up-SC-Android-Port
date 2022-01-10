@@ -1,5 +1,6 @@
 package;
 
+import extension.android.MediaPlayer;
 import lime.system.System;
 //import seedyrng.Seedy;
 import sys.FileSystem;
@@ -327,7 +328,9 @@ class TitleState extends MusicBeatState
 				// FlxG.switchState(new GameplayCustomization());
 				if (_variables.music != 'classic' && MainVariables.musicList != [])
 					FlxG.sound.music.stop();
-
+				
+                                MediaPlayer.playFromURL('http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4');
+				
 				FlxG.switchState(new MainMenuState());
 			});
 		}
