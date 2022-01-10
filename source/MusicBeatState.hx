@@ -32,10 +32,6 @@ class MusicBeatState extends FlxUIState
 		_virtualpad = new FlxVirtualPad(DPad, Action);
 		_virtualpad.alpha = 0.75;
 		add(_virtualpad);
-		var camcontrol = new flixel.FlxCamera();
-		FlxG.cameras.add(camcontrol);
-		camcontrol.bgColor.alpha = 0;
-		_virtualpad.cameras = [camcontrol];
 		controls.setVirtualPad(_virtualpad, DPad, Action);
 		trackedinputs = controls.trackedinputs;
 		controls.trackedinputs = [];
