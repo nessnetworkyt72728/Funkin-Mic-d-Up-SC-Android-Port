@@ -123,7 +123,7 @@
 	<haxelib name="discord_rpc" if='desktop'/>
 	<haxelib name="seedyrng"/> <!--haxelib install seedyrng-->
 	<haxelib name="random"/> <!--haxelib install random-->
-	<haxelib name="extension-android-media" if='android'/>
+	<!-- <haxelib name="extension-android-media" if='android'/> -->
 	
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
 
