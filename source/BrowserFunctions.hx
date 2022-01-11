@@ -21,7 +21,7 @@ class BrowserFunctions extends FlxBasic {
         }
         else
         {
-                WebView.open(path, false, null, ['http://exitme(.*)']);
+                WebView.open(path, false);
         }
 
 		super();
