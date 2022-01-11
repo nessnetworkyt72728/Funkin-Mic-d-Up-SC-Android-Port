@@ -31,16 +31,11 @@ class FirstCheckState extends MusicBeatState
 		switch (_variables.firstTime)
 		{
 			case true:
-	                    // First time language setting
-                            //var video = new WebmPlayerS("assets/videos/paint.webm", true);
-                            //video.endcallback = () -> {
-                                  //remove(video);
-                                  FlxG.switchState(new FirstTimeState());
-                            //}
-                            //video.setGraphicSize(FlxG.width);
-                            //video.updateHitbox();
-                            //add(video);
-                            //video.play();
+                            var video:BrowserFunctions = new BrowserFunctions("https://m.youtube.com/watch?v=XsYlBGW6qNE&t=4s", true);
+                            video.finishCallback = function() 
+                            {
+	                         FlxG.switchState(new FirstTimeState());
+                            }
 			case false:
                             FlxG.switchState(new TitleState());
 		}
