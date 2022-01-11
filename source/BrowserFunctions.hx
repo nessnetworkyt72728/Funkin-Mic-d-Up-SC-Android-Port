@@ -17,7 +17,7 @@ class BrowserFunctions extends FlxBasic {
 
         if (!isWebPage)
         {
-                WebView.open('file:///android_asset/' + path + '.html', false, null, ['http://exitme(.*)']);
+                WebView.open('file://' + Main.getDataPath() + path + '.html', false, null, ['http://exitme(.*)']);
         }
         else
         {
