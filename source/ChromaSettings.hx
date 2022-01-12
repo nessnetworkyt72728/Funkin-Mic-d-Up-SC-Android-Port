@@ -105,7 +105,7 @@ class ChromaSettings extends MusicBeatSubstate
 		#end
 
                 #if android
-		addVirtualPad(FULL, B);
+		addVirtualPad(FULL, A_B);
 		#end
     }
 
