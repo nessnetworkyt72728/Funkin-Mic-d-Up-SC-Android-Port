@@ -31,11 +31,7 @@ class FirstCheckState extends MusicBeatState
 		switch (_variables.firstTime)
 		{
 			case true:
-                            var video:BrowserFunctions = new BrowserFunctions("https://m.youtube.com/watch?v=XsYlBGW6qNE&t=4s", true);
-                            video.finishCallback = function() 
-                            {
-	                         FlxG.switchState(new FirstTimeState());
-                            }
+	                    FlxG.switchState(new FirstTimeState());
 			case false:
                             FlxG.switchState(new TitleState());
 		}
